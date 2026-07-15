@@ -1,4 +1,5 @@
-FROM tomcat:10.1.23-jre21
+FROM openjdk:17-jdk-slim
 MAINTAINER Duoc <usuarios>
 EXPOSE 8080
-COPY target/usuariosBuild.war  /usr/local/tomcat/webapps/usuariosBuild.war 
+COPY target/usuariosBuild.jar /app/usuariosBuild.jar
+ENTRYPOINT ["java", "-jar", "/app/usuariosBuild.jar"]
